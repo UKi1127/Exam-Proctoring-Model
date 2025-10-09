@@ -1,2 +1,53 @@
-# Exam-Proctoring-Model
-The core algorithm of the system leverages artificial intelligence and computer vision to monitor and interpret students’ behavior during examinations. It automatically identifies irregular activities and generates alerts when potential cheating patterns are detected.
+# 🧠 AI Proctoring System (AI 시험감독 시스템)
+
+> 인공지능 기반 온라인 시험감독 시스템 제안서  
+> 👨‍💻 오픈소스 프로젝트 과제용
+
+---
+
+## 🎯 프로젝트 개요
+지필고사에서 시험 보조 수단인 **AI 기반 시험감독 시스템(AI Proctoring)** 의 필요성을 깨닫고 활용하고자 개발하게 되었습니다.
+본 프로젝트는 **컴퓨터 비전(Computer Vision)** 기술을 활용해 수험자의 행동을 실시간 분석하고 이상 징후를 자동 감지하는 것을 목표로 합니다.
+
+---
+
+## ⚙️ 주요 기능
+1. **얼굴 인식 및 시선 추적** – MediaPipe 기반 시선 분석  
+2. **다중 인원 탐지** – YOLOv8 모델을 이용한 인원 수 감지  
+3. **이상행동 감지** – 자리이탈, 시선이탈, 화면 밖 이동 등 자동 경고  
+4. **로그 기록 기능** – 이상행동 발생 시 시간·유형별로 기록 저장  
+5. **경고 시스템** – 비정상 행동 감지 시 화면 팝업 또는 알림음 제공  
+
+---
+
+## 📁 폴더 구조
+
+📦 **AI-Proctoring-Project**  
+- 📂 `src/` : 주요 코드 파일 (AI 모델, 탐지 로직)  
+- 📂 `doc/` : 프로젝트 제안서 및 참고 문서  
+- 📜 `LICENSE` : MIT License  
+- 📘 `README.md` : 프로젝트 설명 문서
+- ## 🔗 참고 링크
+[YOLOv8 공식 문서](https://docs.ultralytics.com)
+
+---
+
+## 🧩 기술 스택
+| 구분 | 사용 기술 |
+|------|------------|
+| 언어 | Python 3.10 |
+| 프레임워크 | Streamlit |
+| AI 모델 | YOLOv8, MediaPipe |
+| 영상 처리 | OpenCV |
+| 버전 관리 | Git & GitHub |
+
+---
+
+## 🧠 시스템 구조
+```mermaid
+flowchart TD
+A[웹캠 입력] --> B[YOLO 인식]
+B --> C[MediaPipe 얼굴/시선 분석]
+C --> D{이상행동 감지?}
+D -->|Yes| E[경고 알림 & 로그 기록]
+D -->|No| F[정상 진행]
