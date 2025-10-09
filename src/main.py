@@ -1,4 +1,4 @@
-
+print("프로젝트 테스트용 수정 완료!")
 import cv2
 
 def main():
